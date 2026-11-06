@@ -229,18 +229,6 @@ public class ColorModePreferenceFragment extends RadioButtonPickerFragment {
     private static final String KEY_DISPLAY_ENGINE_CATEGORY = "display_engine_category";
 
     @Override
-    public void updateCandidates() {
-        super.updateCandidates();
-
-        PreferenceScreen screen = getPreferenceScreen();
-        if (ColorDisplayManager.isColorTransformAccelerated(screen.getContext())
-                && screen.findPreference(KEY_DISPLAY_ENGINE_CATEGORY) == null) {
-            getPreferenceManager().inflateFromResource(
-                    screen.getContext(), R.xml.display_engine_settings, screen);
-        }
-    }
-
-    @Override
     protected void addStaticPreferences(PreferenceScreen screen) {
         final LayoutPreference preview = new LayoutPreference(screen.getContext(),
                 R.layout.color_mode_preview);
